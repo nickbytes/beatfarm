@@ -14,74 +14,92 @@ class Row extends React.Component {
     steps: [
       {
         id: 1,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 2,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 3,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 4,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 5,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 6,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 7,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 8,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 9,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 10,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 11,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 12,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 13,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 14,
-        active: false
+        active: false,
+        hit: false
       },
       {
         id: 15,
-        active: false
+        active: true,
+        hit: false
       },
       {
         id: 16,
-        active: false
+        active: false,
+        hit: false
       }
     ]
   };
   render() {
     return (
       <RowStyle>
-        {this.state.steps.map(thing => <Step key={thing.id} />)}
+        {this.state.steps.map(stepItem => (
+          <Step key={stepItem.id} active={stepItem.active} hit={stepItem.hit} />
+        ))}
       </RowStyle>
     );
   }
