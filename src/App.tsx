@@ -33,11 +33,175 @@ class App extends React.Component {
     rows: [
       {
         id: 1,
-        sound: "kick"
+        sound: "kick",
+        steps: [
+          {
+            id: 1,
+            active: false,
+            hit: false
+          },
+          {
+            id: 2,
+            active: false,
+            hit: false
+          },
+          {
+            id: 3,
+            active: false,
+            hit: false
+          },
+          {
+            id: 4,
+            active: false,
+            hit: false
+          },
+          {
+            id: 5,
+            active: false,
+            hit: false
+          },
+          {
+            id: 6,
+            active: false,
+            hit: false
+          },
+          {
+            id: 7,
+            active: false,
+            hit: false
+          },
+          {
+            id: 8,
+            active: false,
+            hit: false
+          },
+          {
+            id: 9,
+            active: false,
+            hit: false
+          },
+          {
+            id: 10,
+            active: false,
+            hit: false
+          },
+          {
+            id: 11,
+            active: false,
+            hit: false
+          },
+          {
+            id: 12,
+            active: false,
+            hit: false
+          },
+          {
+            id: 13,
+            active: false,
+            hit: false
+          },
+          {
+            id: 14,
+            active: false,
+            hit: false
+          },
+          {
+            id: 15,
+            active: true,
+            hit: false
+          },
+          {
+            id: 16,
+            active: false,
+            hit: false
+          }
+        ]
       },
       {
         id: 2,
-        sound: "snare"
+        sound: "snare",
+        steps: [
+          {
+            id: 1,
+            active: false,
+            hit: false
+          },
+          {
+            id: 2,
+            active: false,
+            hit: false
+          },
+          {
+            id: 3,
+            active: false,
+            hit: false
+          },
+          {
+            id: 4,
+            active: false,
+            hit: false
+          },
+          {
+            id: 5,
+            active: false,
+            hit: false
+          },
+          {
+            id: 6,
+            active: false,
+            hit: false
+          },
+          {
+            id: 7,
+            active: false,
+            hit: false
+          },
+          {
+            id: 8,
+            active: false,
+            hit: false
+          },
+          {
+            id: 9,
+            active: false,
+            hit: false
+          },
+          {
+            id: 10,
+            active: false,
+            hit: false
+          },
+          {
+            id: 11,
+            active: true,
+            hit: false
+          },
+          {
+            id: 12,
+            active: true,
+            hit: false
+          },
+          {
+            id: 13,
+            active: false,
+            hit: false
+          },
+          {
+            id: 14,
+            active: false,
+            hit: false
+          },
+          {
+            id: 15,
+            active: true,
+            hit: false
+          },
+          {
+            id: 16,
+            active: false,
+            hit: false
+          }
+        ]
       }
     ]
   };
@@ -45,7 +209,9 @@ class App extends React.Component {
     return (
       <AppContainer>
         <Title>beatfarm</Title>
-        {this.state.rows.map(rowItem => <Row key={rowItem.id} />)}
+        {this.state.rows.map(rowItem => (
+          <Row key={rowItem.id} steps={rowItem.steps} />
+        ))}
       </AppContainer>
     );
   }
