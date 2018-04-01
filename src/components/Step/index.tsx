@@ -1,24 +1,44 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type StyleProps = {
   active: boolean;
-  hit: boolean;
+  current: number;
+  stepId: number;
 };
 
-const StepSpan = styled.span`
-  width: 16px;
-  height: 16px;
-  margin: 0 10px;
+const complexMixin = css`
   background-color: ${(props: StyleProps) =>
-    props.active ? "rgba(62, 111, 173, 0.75)" : "rgba(62, 111, 173, 0.25)"};
+    props.current === props.stepId ? "rgba(53, 212, 199, 1.000)" : "rgba(62, 111, 173, 0.55)"};
+  border: ${(props: StyleProps) =>
+    props.current === props.stepId ? "2px solid red" : "border: 1px solid rgba(62, 111, 173, 1)"};
+`;
+
+const inactiveHit = css`
+    border: ${(props: StyleProps) =>
+    props.current === props.stepId ? "2px solid red" : "border: 1px solid rgba(62, 111, 173, 1)"};
+`;
+
+const StepSpan = styled.span`
+width: 16px;
+height: 16px;
+margin: 0 10px;
+border: 1px solid rgba(62, 111, 173, 1);
+${
+  (props: StyleProps) =>
+    props.active ? complexMixin : inactiveHit
+  };
+
+
 `;
 
 type Props = {
   active: boolean;
-  hit: boolean;
+  current: number;
+  stepId: number;
 };
 
-const Step = ({ active, hit }: Props) => <StepSpan active={active} hit={hit} />;
+const Step = ({ active, current, stepId }: Props) =>
+  <StepSpan active={active} current={current} stepId={stepId} />;
 
 export default Step;

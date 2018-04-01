@@ -11,18 +11,18 @@ const RowStyle = styled.div`
 
 interface StepsProps {
   steps: StepItem[];
+  currentCount: number;
 }
 
 interface StepItem {
   id: number;
-  hit: boolean;
   active: boolean;
 }
 
-const Row = ({ steps }: StepsProps) => (
+const Row = ({ steps, currentCount }: StepsProps) => (
   <RowStyle>
     {steps.map((stepItem: StepItem) => (
-      <Step key={stepItem.id} active={stepItem.active} hit={stepItem.hit} />
+      <Step key={stepItem.id} stepId={stepItem.id} active={stepItem.active} current={currentCount} />
     ))}
   </RowStyle>
 );

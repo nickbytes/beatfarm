@@ -30,6 +30,7 @@ const Title = styled.h1`
 
 class App extends React.Component {
   state = {
+    currentCount: 1,
     rows: [
       {
         id: 1,
@@ -38,82 +39,66 @@ class App extends React.Component {
           {
             id: 1,
             active: false,
-            hit: false
           },
           {
             id: 2,
             active: false,
-            hit: false
           },
           {
             id: 3,
             active: false,
-            hit: false
           },
           {
             id: 4,
             active: false,
-            hit: false
           },
           {
             id: 5,
             active: false,
-            hit: false
           },
           {
             id: 6,
             active: false,
-            hit: false
           },
           {
             id: 7,
             active: false,
-            hit: false
           },
           {
             id: 8,
             active: false,
-            hit: false
           },
           {
             id: 9,
             active: false,
-            hit: false
           },
           {
             id: 10,
             active: false,
-            hit: false
           },
           {
             id: 11,
             active: false,
-            hit: false
           },
           {
             id: 12,
             active: false,
-            hit: false
           },
           {
             id: 13,
             active: false,
-            hit: false
           },
           {
             id: 14,
             active: false,
-            hit: false
           },
           {
             id: 15,
             active: true,
-            hit: false
           },
           {
             id: 16,
             active: false,
-            hit: false
           }
         ]
       },
@@ -124,93 +109,95 @@ class App extends React.Component {
           {
             id: 1,
             active: false,
-            hit: false
           },
           {
             id: 2,
             active: false,
-            hit: false
           },
           {
             id: 3,
             active: false,
-            hit: false
           },
           {
             id: 4,
             active: false,
-            hit: false
           },
           {
             id: 5,
             active: false,
-            hit: false
           },
           {
             id: 6,
             active: false,
-            hit: false
           },
           {
             id: 7,
             active: false,
-            hit: false
           },
           {
             id: 8,
             active: false,
-            hit: false
           },
           {
             id: 9,
             active: false,
-            hit: false
           },
           {
             id: 10,
             active: false,
-            hit: false
           },
           {
             id: 11,
             active: true,
-            hit: false
           },
           {
             id: 12,
             active: true,
-            hit: false
           },
           {
             id: 13,
             active: false,
-            hit: false
           },
           {
             id: 14,
             active: false,
-            hit: false
           },
           {
             id: 15,
             active: true,
-            hit: false
           },
           {
             id: 16,
             active: false,
-            hit: false
           }
         ]
       }
     ]
   };
+
+  timer = () => {
+    if (this.state.currentCount === 16) {
+      this.setState({
+        currentCount: 1
+      });
+    } else {
+      this.setState({
+        currentCount: this.state.currentCount + 1
+      });
+    }
+
+  }
+
+  componentDidMount() {
+    window.setInterval(this.timer, 500);
+  }
+
   render() {
     return (
       <AppContainer>
-        <Title>beatfarm</Title>
+        <Title>beatfarm – {this.state.currentCount}</Title>
         {this.state.rows.map(rowItem => (
-          <Row key={rowItem.id} steps={rowItem.steps} />
+          <Row key={rowItem.id} steps={rowItem.steps} currentCount={this.state.currentCount} />
         ))}
       </AppContainer>
     );
