@@ -197,7 +197,7 @@ class App extends React.Component {
       <AppContainer>
         <Title>beatfarm – {this.state.currentCount}</Title>
         {this.state.rows.map(rowItem => (
-          <Row key={rowItem.id} steps={rowItem.steps} currentCount={this.state.currentCount} />
+          <Row key={rowItem.id} sound={rowItem.sound} steps={rowItem.steps} currentCount={this.state.currentCount} />
         ))}
       </AppContainer>
     );
